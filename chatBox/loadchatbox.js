@@ -27,18 +27,25 @@ function toggleChat() {
     chatBox.style.display = chatBox.style.display === "none" ? "block" : "none";
 }
 
-/**function sendMessage() {
+function sendMessage() {
     var input = document.getElementById("chatInput");
-    var message = input.value;
+    var usermessage = input.value;
     input.value = "";
 
-    if (message.trim() === "") return;
+    if (usermessage.trim() === "") return;
 
-    saveMessage(message);
-    displayMessage(message);
-}**/
+    saveMessage("You: " + usermessage);
+    displayMessage("You: " + usermessage);
+    getChatGPTResponse(usermessage);
 
-function sendMessage() {
+}
+
+function getChatGPTResponse(){
+    var theResponse = "wassup";
+    displayMessage("ChatGPT: " + theResponse);
+}
+
+/**function sendMessage() {
     var input = document.getElementById("chatInput");
     var userMessage = input.value;
     input.value = "";
@@ -67,7 +74,7 @@ function getChatGPTResponse(message) {
         displayMessage("ChatGPT: " + data.response);
     })
     .catch(error => console.error('Error in ChatGPT response:', error));
-}
+}**/
 
 
 function saveMessage(message) {
@@ -87,6 +94,7 @@ function displayMessage(message) {
     var newMessage = document.createElement("p");
     newMessage.textContent = message;
     messages.appendChild(newMessage);
+   // saveMessage(message);
 }
 
 // Call the function to load the chatbox
