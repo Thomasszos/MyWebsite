@@ -1,0 +1,21 @@
+#chatButton:hover {
+    background-color: #005f5f; /* Darker teal on hover */
+}
+
+#chatBox {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    border: 1px solid #333;
+    background-color: #008080;
+    padding: 10px;
+    /* Style your chat box as needed */
+}
+
+#messages {
+    height: 90%;
+    overflow-y: auto;
+    /* Additional styling for the messages area */
+}

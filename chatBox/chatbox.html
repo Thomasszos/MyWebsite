@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/chatbox.css"> <!-- Correct path to your chatbox CSS -->
+    <!-- Other head elements like title, meta tags, etc. -->
+</head>
+<body>
+
+    <!-- Chat Box Button -->
+    <button id="chatButton" onclick="toggleChat()">Chat with Me</button>
+
+    <!-- Chat Box -->
+    <div id="chatBox" style="display:none;">
+        <div id="messages"></div>
+        <input type="text" id="chatInput" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <!-- JavaScript for chat functionality -->
+    <script src="chatbox.js"></script> <!-- Correct path to your JavaScript file -->
+
+</body>
+</html>

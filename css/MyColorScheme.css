@@ -98,3 +98,17 @@ footer {
 footer p {
     margin: 0;
 }
+
+#chatButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #008080; /* Teal background */
+    color: #f0e4d7; /* Tan text */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
