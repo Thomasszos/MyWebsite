@@ -19,3 +19,14 @@
     overflow-y: auto;
     /* Additional styling for the messages area */
 }
+
+/* Styles for individual messages in the chatbox */
+#messages p {
+    border: 1px solid #333; /* Add a border to each message */
+    padding: 5px; /* Add some padding inside the message box */
+    margin-bottom: 10px; /* Add some space between messages */
+    background-color: white; /* Background color for the message box */
+    color: #333; /* Text color for the message */
+    border-radius: 5px; /* Optionally, add rounded corners */
+    word-wrap: break-word; /* Ensure long words don't overflow */
+}
