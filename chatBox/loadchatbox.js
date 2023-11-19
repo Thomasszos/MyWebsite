@@ -27,7 +27,7 @@ function toggleChat() {
     chatBox.style.display = chatBox.style.display === "none" ? "block" : "none";
 }
 
-function sendMessage() {
+/**function sendMessage() {
     var input = document.getElementById("chatInput");
     var message = input.value;
     input.value = "";
@@ -36,7 +36,39 @@ function sendMessage() {
 
     saveMessage(message);
     displayMessage(message);
+}**/
+
+function sendMessage() {
+    var input = document.getElementById("chatInput");
+    var userMessage = input.value;
+    input.value = "";
+
+    if (userMessage.trim() === "") return;
+
+    displayMessage("You: " + userMessage);
+    getChatGPTResponse(userMessage);
 }
+
+function getChatGPTResponse(message) {
+    // Replace this URL with the endpoint of your serverless function or ChatGPT API
+    const apiEndpoint = "../chatBox/chatboxAI.js"; 
+
+    fetch(apiEndpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            // Include additional headers if needed
+        },
+        body: JSON.stringify({ message: message })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Assuming the response contains a field 'response' with ChatGPT's text
+        displayMessage("ChatGPT: " + data.response);
+    })
+    .catch(error => console.error('Error in ChatGPT response:', error));
+}
+
 
 function saveMessage(message) {
     // Get existing messages from localStorage or initialize an empty array
