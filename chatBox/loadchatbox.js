@@ -27,7 +27,7 @@ function toggleChat() {
     chatBox.style.display = chatBox.style.display === "none" ? "block" : "none";
 }
 
-function sendMessage() {
+/**function sendMessage() {
     var input = document.getElementById("chatInput");
     var usermessage = input.value;
     input.value = "";
@@ -42,39 +42,37 @@ function sendMessage() {
 
 function getChatGPTResponse(){
     var theResponse = "wassup";
-    displayMessage("ChatGPT: " + theResponse);
-}
 
-/**function sendMessage() {
+    //<script src="chatBox/loadchatbox.js"></script> <!-- Update with the correct path -->
+
+    saveMessage("ChatGPT: " + theResponse);
+    displayMessage("ChatGPT: " + theResponse);
+}**/
+
+function sendMessage() {
     var input = document.getElementById("chatInput");
-    var userMessage = input.value;
+    var message = input.value;
     input.value = "";
 
-    if (userMessage.trim() === "") return;
-
-    displayMessage("You: " + userMessage);
-    getChatGPTResponse(userMessage);
+    if (message.trim() === "") return;
+    displayMessage("You: " + message);
+    getChatGPTResponse(message);
 }
 
 function getChatGPTResponse(message) {
-    // Replace this URL with the endpoint of your serverless function or ChatGPT API
-    const apiEndpoint = "../chatBox/chatboxAI.js"; 
-
-    fetch(apiEndpoint, {
+    fetch('http://localhost:3000/chat', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            // Include additional headers if needed
         },
         body: JSON.stringify({ message: message })
     })
     .then(response => response.json())
     .then(data => {
-        // Assuming the response contains a field 'response' with ChatGPT's text
         displayMessage("ChatGPT: " + data.response);
     })
-    .catch(error => console.error('Error in ChatGPT response:', error));
-}**/
+    .catch(error => console.error('Error:', error));
+}
 
 
 function saveMessage(message) {
