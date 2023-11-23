@@ -60,7 +60,8 @@ function sendMessage() {
 }
 
 function getChatGPTResponse(message) {
-    fetch('http://localhost:3000/chat', {
+    //displayMessage("hi");
+    fetch('https://74hlhx96w2.execute-api.us-east-2.amazonaws.com/chat', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -94,6 +95,21 @@ function displayMessage(message) {
     messages.appendChild(newMessage);
    // saveMessage(message);
 }
+
+function clearMessageHistory() {
+    // Option 1: Remove the item completely
+    localStorage.removeItem("chatMessages");
+
+    // Option 2: Set it to an empty array
+    // localStorage.setItem("chatMessages", JSON.stringify([]));
+
+    // Optionally, you can also clear the displayed messages in the chatbox
+    var messagesContainer = document.getElementById("messages");
+    if (messagesContainer) {
+        messagesContainer.innerHTML = '';
+    }
+}
+
 
 // Call the function to load the chatbox
 loadChatbox();
