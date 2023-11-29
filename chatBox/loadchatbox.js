@@ -96,7 +96,7 @@ function sendMessage() {
     .catch(error => console.error('Error:', error));
 }**/
 
-function getChatGPTResponse(message) {
+/*function getChatGPTResponse(message) {
     // Prepare the request data
     const requestData = {
         method: 'POST',
@@ -109,7 +109,7 @@ function getChatGPTResponse(message) {
     // Log the request data
     console.log('Sending request to API:', requestData);
 
-    fetch('http://localhost:3000/chat', requestData)
+    fetch('https://thomasszos.github.io/MyWebsite/chat', requestData)
     .then(response => {
         // Log the raw response
         console.log('Raw response:', response);
@@ -126,7 +126,7 @@ function getChatGPTResponse(message) {
         displayMessage("ChatGPT: " + data.response);
     })
     .catch(error => console.error('Error:', error));
-}
+}*/
 
 
 function saveMessage(message) {
