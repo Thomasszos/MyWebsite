@@ -109,7 +109,7 @@ function getChatGPTResponse(message) {
     // Log the request data
     console.log('Sending request to API:', requestData);
 
-    fetch('https://74hlhx96w2.execute-api.us-east-2.amazonaws.com/MyChatBox/chat', requestData)
+    fetch('http://localhost:3000/chat', requestData)
     .then(response => {
         // Log the raw response
         console.log('Raw response:', response);
