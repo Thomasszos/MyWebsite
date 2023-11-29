@@ -59,7 +59,7 @@ function sendMessage() {
     getChatGPTResponse(message);
 }
 
-function getChatGPTResponse(message) {
+/**function getChatGPTResponse(message) {
     //displayMessage("hi");
     fetch('https://74hlhx96w2.execute-api.us-east-2.amazonaws.com/chat', {
         method: 'POST',
@@ -70,6 +70,59 @@ function getChatGPTResponse(message) {
     })
     .then(response => response.json())
     .then(data => {
+        displayMessage("ChatGPT: " + data.response);
+    })
+    .catch(error => console.error('Error:', error));
+}**/
+
+
+/**function getChatGPTResponse(message) {
+    fetch('https://74hlhx96w2.execute-api.us-east-2.amazonaws.com/MyChatBox/ChatWithMeBot', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: message })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        displayMessage("ChatGPT: " + data.response);
+    })
+    .catch(error => console.error('Error:', error));
+}**/
+
+function getChatGPTResponse(message) {
+    // Prepare the request data
+    const requestData = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: message })
+    };
+
+    // Log the request data
+    console.log('Sending request to API:', requestData);
+
+    fetch('https://74hlhx96w2.execute-api.us-east-2.amazonaws.com/MyChatBox/chat', requestData)
+    .then(response => {
+        // Log the raw response
+        console.log('Raw response:', response);
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Log the response data
+        console.log('Response data:', data);
+
         displayMessage("ChatGPT: " + data.response);
     })
     .catch(error => console.error('Error:', error));
