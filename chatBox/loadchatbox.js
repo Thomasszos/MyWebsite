@@ -96,7 +96,7 @@ function sendMessage() {
     .catch(error => console.error('Error:', error));
 }**/
 
-function getChatGPTResponse(message) {
+/**function getChatGPTResponse(message) {
     // Prepare the request data
     const requestData = {
         method: 'POST',
@@ -126,7 +126,7 @@ function getChatGPTResponse(message) {
         displayMessage("ChatGPT: " + data.response);
     })
     .catch(error => console.error('Error:', error));
-}
+}**/
 
 
 function saveMessage(message) {
