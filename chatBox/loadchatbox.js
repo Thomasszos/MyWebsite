@@ -61,7 +61,7 @@ function sendMessage() {
 
 /**function getChatGPTResponse(message) {
     //displayMessage("hi");
-    fetch('https://74hlhx96w2.execute-api.us-east-2.amazonaws.com/chat', {
+    fetch('https://tomschatbot-06c19f746de1.herokuapp.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ function sendMessage() {
     .catch(error => console.error('Error:', error));
 }**/
 
-/*function getChatGPTResponse(message) {
+function getChatGPTResponse(message) {
     // Prepare the request data
     const requestData = {
         method: 'POST',
@@ -109,7 +109,7 @@ function sendMessage() {
     // Log the request data
     console.log('Sending request to API:', requestData);
 
-    fetch('https://thomasszos.github.io/MyWebsite/chat', requestData)
+    fetch('https://tomschatbot-06c19f746de1.herokuapp.com/chat', requestData)
     .then(response => {
         // Log the raw response
         console.log('Raw response:', response);
@@ -126,7 +126,7 @@ function sendMessage() {
         displayMessage("ChatGPT: " + data.response);
     })
     .catch(error => console.error('Error:', error));
-}*/
+}
 
 
 function saveMessage(message) {
