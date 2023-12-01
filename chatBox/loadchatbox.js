@@ -3,22 +3,29 @@ function loadChatbox() {
     const currentPage = window.location.pathname.split('/').pop();
 
     let chatboxPath = '';
+    let cssPath = '';
     if (currentPage === 'index.html' || currentPage === '') {
-        // If it's the homepage (index.html or empty for root)
-        chatboxPath = 'chatBox/chatbox.html';
+        chatboxPath = 'chatBox/chatbox.html'; // Path from the root for chatbox HTML
+        cssPath = 'css/chatbox.css';          // Path from the root for chatbox CSS
     } else {
-        // For other pages
-        chatboxPath = '../chatBox/chatbox.html';
+        chatboxPath = '../chatBox/chatbox.html'; // Path from subdirectories for chatbox HTML
+        cssPath = '../css/chatbox.css';         // Path from subdirectories for chatbox CSS
     }
 
-    fetch(chatboxPath)  // Update the path to your chatbox.html
-        .then(response => response.text())
-        .then(html => {
-            document.body.innerHTML += html;
-            loadMessages();       // Load and display messages
-            // After loading, initialize event listeners or other necessary scripts
-        })
-        .catch(error => console.error('Error loading the chatbox:', error));
+    fetch(chatboxPath)
+    .then(response => response.text())
+    .then(html => {
+        document.body.innerHTML += html;
+        // Set the correct path for the CSS file
+        const chatboxCSSLink = document.createElement('link');
+        chatboxCSSLink.rel = 'stylesheet';
+        chatboxCSSLink.href = cssPath;
+        document.head.appendChild(chatboxCSSLink);
+
+        // Load and display messages, initialize event listeners or other scripts
+        loadMessages();
+    })
+    .catch(error => console.error('Error loading the chatbox:', error));
 }
 
 
