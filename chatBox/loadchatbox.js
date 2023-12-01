@@ -1,5 +1,5 @@
 function loadChatbox() {
-    fetch('chatbox.html')  // Update the path to your chatbox.html
+    fetch('../chatBox/chatbox.html')  // Update the path to your chatbox.html
         .then(response => response.text())
         .then(html => {
             document.body.innerHTML += html;
