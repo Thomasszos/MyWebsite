@@ -1,5 +1,17 @@
 function loadChatbox() {
-    fetch('../chatBox/chatbox.html')  // Update the path to your chatbox.html
+
+    const currentPage = window.location.pathname.split('/').pop();
+
+    let chatboxPath = '';
+    if (currentPage === 'index.html' || currentPage === '') {
+        // If it's the homepage (index.html or empty for root)
+        chatboxPath = 'chatBox/chatbox.html';
+    } else {
+        // For other pages
+        chatboxPath = '../chatBox/chatbox.html';
+    }
+
+    fetch(chatboxPath)  // Update the path to your chatbox.html
         .then(response => response.text())
         .then(html => {
             document.body.innerHTML += html;
@@ -8,6 +20,8 @@ function loadChatbox() {
         })
         .catch(error => console.error('Error loading the chatbox:', error));
 }
+
+
 
 function initializeChatbox() {
     var chatButton = document.getElementById('chatButton');
