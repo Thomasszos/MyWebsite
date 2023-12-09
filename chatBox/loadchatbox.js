@@ -149,6 +149,24 @@ function getChatGPTResponse(message) {
     .catch(error => console.error('Error:', error));
 }
 
+/*function storeMessage(messageText, messageType) {
+    // Replace with the correct API endpoint and user ID
+    fetch('postgres://grclvbpbrlsyvs:2acdb908e91420f22b9fb3f85dbe11f7577cc6c08f757630f2585751c5c44cec@ec2-35-169-9-79.compute-1.amazonaws.com:5432/df6lrm2v1uvstq/messages', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+            userId: user ID, 
+            messageText: messageText, 
+            messageType: messageType 
+        })
+    })
+    .then(response => response.json())
+    .then(data => console.log('Message stored:', data))
+    .catch(error => console.error('Error storing message:', error));
+}*/
+
 
 function saveMessage(message) {
     // Get existing messages from localStorage or initialize an empty array
@@ -183,6 +201,7 @@ function clearMessageHistory() {
         messagesContainer.innerHTML = '';
     }
 }
+
 
 
 // Call the function to load the chatbox
